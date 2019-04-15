@@ -6,11 +6,11 @@
 #
 Name     : ksquares
 Version  : 18.12.3
-Release  : 4
+Release  : 5
 URL      : https://download.kde.org/stable/applications/18.12.3/src/ksquares-18.12.3.tar.xz
 Source0  : https://download.kde.org/stable/applications/18.12.3/src/ksquares-18.12.3.tar.xz
 Source99 : https://download.kde.org/stable/applications/18.12.3/src/ksquares-18.12.3.tar.xz.sig
-Summary  : No detailed summary available
+Summary  : A game modeled after the well known pen and paper based game of Dots and Boxes
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
 Requires: ksquares-bin = %{version}-%{release}
@@ -75,16 +75,15 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1552007066
+export SOURCE_DATE_EPOCH=1555359936
 mkdir -p clr-build
 pushd clr-build
-export LDFLAGS="${LDFLAGS} -fno-lto"
 %cmake ..
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1552007066
+export SOURCE_DATE_EPOCH=1555359936
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/ksquares
 cp COPYING %{buildroot}/usr/share/package-licenses/ksquares/COPYING
